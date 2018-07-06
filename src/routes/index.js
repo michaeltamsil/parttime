@@ -14,19 +14,27 @@ class Routes extends Component {
   constructor(props){
     super(props)
     this.state = {
-      isLogin: false
+      isLogin: false,
+      updateLogin: bol => {
+        this.setState({
+          isLogin: bol
+        })
+      }
     }
   }
 
   render = () => {
-    let display = this.state.isLogin ? Dashboard : Login
-
-
-
+    let state = this.state;
     return (
       <div>
         <Switch>
-          <Route path="/" component={display}/>
+          <Route
+            path="/"
+            render={ props => this.state.isLogin ? 
+              <Dashboard {...props} /> :
+              <Login {...props} {...state }/>
+            }
+          />
         </Switch>
       </div>
     )

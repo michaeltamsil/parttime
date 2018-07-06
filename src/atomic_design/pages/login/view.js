@@ -18,9 +18,12 @@ class Index extends Component {
   }
 
   loginIn() {
-    this.setState({
-      isRedirected: true
-    })
+    if (this.props.updateLogin){
+      this.props.updateLogin(true)
+    }
+    // this.setState({
+    //   isRedirected: true
+    // })
   }
   
   render = () => {
