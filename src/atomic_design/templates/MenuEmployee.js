@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { Route, Switch, NavLink } from 'react-router-dom'
 import { Col, Nav, NavItem, Row } from 'reactstrap'
 
-import Profile from '../pages/employee/profile/view'
-import Free_Time from '../pages/employee/free_time/view'
-import Jobs from '../pages/employee/jobs/view'
-import Applied_Jobs from '../pages/employee/applied_jobs/view'
+import Profile from '../pages/employee/profile'
+import Free_Time from '../pages/employee/free_time'
+import Free_TimeAdd from '../pages/employee/free_time/add'
+import Jobs from '../pages/employee/jobs'
+import Applied_Jobs from '../pages/employee/applied_jobs'
 
 
 class MenuEmployee extends Component {
@@ -34,7 +35,7 @@ class MenuEmployee extends Component {
         </NavItem>
       </Nav>
     </Col>
-    <Col md="12">
+    <Col md="12 mt-4">
       <Switch>
         <Route
           path={`${path}/profile`}
@@ -42,7 +43,21 @@ class MenuEmployee extends Component {
         />
         <Route
           path={`${path}/free_time`}
+          exact={true}
           render = { props => <Free_Time { ...props } />}
+        />
+        <Route
+          path={`${path}/free_time/add`}
+          exact={true}
+          render = { props => <Free_TimeAdd { ...props } />}
+        />
+        <Route
+          path={`${path}/jobs`}
+          render = { props => <Jobs { ...props } />}
+        />
+        <Route
+          path={`${path}/applied_jobs`}
+          render = { props => <Applied_Jobs { ...props } />}
         />
       </Switch>
     </Col>

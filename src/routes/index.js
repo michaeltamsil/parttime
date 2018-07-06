@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Home from '../atomic_design/pages/home/view';
-
-import EmployeeAppliedJobs from '../atomic_design/pages/employee/applied_jobs/view';
-import EmployeeFreetime from '../atomic_design/pages/employee/free_time/view';
-import EmployeeJobs from '../atomic_design/pages/employee/jobs/view';
-import EmployeeProfile from '../atomic_design/pages/employee/profile/view';
-import Dashboard from '../atomic_design/pages/dashboard/view';
-import Login from '../atomic_design/pages/login/view';
+import Dashboard from '../atomic_design/pages/dashboard';
+import Login from '../atomic_design/pages/login';
 
 
 class Routes extends Component {
   constructor(props){
     super(props)
     this.state = {
-      isLogin: false,
+      isLogin: true,
       updateLogin: bol => {
         this.setState({
           isLogin: bol

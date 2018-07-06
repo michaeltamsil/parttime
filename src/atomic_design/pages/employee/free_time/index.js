@@ -7,16 +7,11 @@ class Index extends Component {
 
   constructor(props) {
     super(props)
-    this.delete = this.delete.bind(this)
   }
 
-  delete() {
-
-  }
-  
   render = () => {
     return (<div>
-      <Row className="mt-4">
+      <Row>
         <Col>
           <Button color="primary" size="sm">Add</Button>
         </Col>
@@ -54,7 +49,7 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Hired</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2" onClick={this.delete()} >Edit</button>
+                  <button className="btn btn-primary btn-sm mr-2">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
               </tr>
