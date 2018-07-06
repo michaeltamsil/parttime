@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { } from './../../../atoms/Confirm';
 import { Button, Col, Container, Nav, NavItem, Row, Table } from 'reactstrap';
 
 class Index extends Component {
