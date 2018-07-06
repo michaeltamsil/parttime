@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Dropdown, DropdownMenu, DropdownToggle, DropdownItem, Button} from 'reactstrap';
+import {Button, Col, Row} from 'reactstrap';
+import { NavLink } from 'react-router-dom';
+
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../../redux/modules/authentication';
-import {mobileBreakpoint} from '../../helpers/ui-constants';
 import {deleteCookie, getCookie} from '../../helpers/cookie-utils';
 
 class Header extends Component {
@@ -12,10 +13,12 @@ class Header extends Component {
     super(props);
   }
   render() {
-    return (
-    <header className="header">
-    <div>Am headers</div>
-    </header>);
+    return (<Row className="mt-3">
+      <Col sm="4">
+        <NavLink className="btn btn-primary btn-sm mr-3" to="/employee">Employee</NavLink>
+        <NavLink className="btn btn-primary btn-sm mr-3" to="/employer">Employer</NavLink>
+      </Col>
+    </Row>);
   }
 }
 export default connect()(Header);

@@ -7,7 +7,6 @@ class Index extends Component {
 
   constructor(props) {
     super(props)
-    console.log(props);
     this.delete = this.delete.bind(this)
   }
 
@@ -16,31 +15,7 @@ class Index extends Component {
   }
   
   render = () => {
-    return (<Container>
-      <Row className="mt-3">
-        <Col sm="4">
-          <Button className="mr-3 active" color="primary" size="sm">Employee</Button>
-          <Button color="primary" size="sm">Employer</Button>
-        </Col>
-      </Row>
-      <Row className="mt-3">
-        <Col>
-          <Nav tabs>
-            <NavItem>
-              <NavLink className="nav-link" to="/employee/profile">Profile</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/employee/free_time">Free Time</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/employee/jobs">Jobs</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/employee/applied_jobs">Applied Jobs</NavLink>
-            </NavItem>
-          </Nav>
-        </Col>
-      </Row>
+    return (<div>
       <Row className="mt-4">
         <Col>
           <Button color="primary" size="sm">Add</Button>
@@ -87,7 +62,7 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
-    </Container>);
+    </div>);
   }
 }
 export default connect()(Index);
