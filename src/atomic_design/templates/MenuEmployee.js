@@ -10,13 +10,13 @@ import Applied_Jobs from '../pages/employee/applied_jobs'
 
 
 class MenuEmployee extends Component {
+  
   constructor(props) {
     super(props);
   }
+
   render() {
-    console.log(this.props);
     const { path } = this.props.match
-    console.log(path)
 
     return (<Row className="mt-3">
     <Col md="12">
