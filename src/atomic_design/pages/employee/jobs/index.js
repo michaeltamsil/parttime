@@ -8,7 +8,7 @@ class Index extends Component {
   render = () => {
     return (<div>
       <Row>
-        <Col className="mt-5">
+        <Col className="mt-4">
           <Table striped>
             <thead>
               <th>Days</th>

@@ -1,35 +1,53 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import {Col, Row, Table } from 'reactstrap'
 
 class Index extends Component {
   
   render = () => {
-    return (<div className="container">
-      <div className="row mt-3">
-        <div className="col-sm-4">
-          <button className="btn btn-primary btn-sm mr-1 active" type="button">Employee</button>{ }
-          <button className="btn btn-primary btn-sm" type="button">Employer</button>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-sm-12">
-          <ul className="nav nav-tabs">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/employee/profile">Profile</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/employee/free_time">Free Time</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/employee/jobs">Jobs</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/employee/applied_jobs">Applied Jobs</NavLink>
-            </li>
-          </ul>
-        </div>
-      </div>
+    return (<div>
+      <Row>
+        <Col className="mt-4">
+          <Table striped>
+            <thead>
+              <th>Days</th>
+              <th>Time</th>
+              <th>Date</th>
+              <th>Position</th>
+              <th>Description</th>
+              <th>Salary</th>
+              <th>Location</th>
+              <th>Employer</th>
+              <th>Status</th>
+            </thead>
+            <tbody className="small">
+              <tr>
+                <td>Minday / Tuesday / Wednesday</td>
+                <td>2PM - 7PM</td>
+                <td>July 1st - 31th 2018</td>
+                <td>Waitress</td>
+                <td>Take order / serve dished / pickup ...</td>
+                <td>Rp 10K / day</td>
+                <td> Godiva Coffee Nagoya hill</td>
+                <td>Darvin Yuhuuu</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>Saturday / Sunday</td>
+                <td>9PM - 9PM</td>
+                <td>July 1s - 31th 2018</td>
+                <td>Waitress</td>
+                <td>Take order / serve dished / pickup ...</td>
+                <td> Rp 20k / day</td>
+                <td>Godiva Coffe Nagoya Hill</td>
+                <td>Darvin Yuhuuu</td>
+                <td>Approved</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
     </div>);
   }
 }
