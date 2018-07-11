@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { Button, Col, Container, Nav, NavItem, Row, Table } from 'reactstrap';
+import { Button, Col, Container, Form, FormGroup, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, Row, Table } from 'reactstrap';
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      modal: false,
+      backdrop: 'static'
+    }
+    this.add = this.add.bind(this)
+    this.toggle = this.toggle.bind(this)
+  }
+  
+  add(e) {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    })
   }
 
   render = () => {
     return (<div>
       <Row>
         <Col>
-          <Button color="primary" size="sm">Add</Button>
+          <Button color="primary" size="sm" onClick={this.add}>Add</Button>
         </Col>
       </Row>
       <Row>
-        <Col className="mt-2">
+        <Col className="mt-1123">
           <Table striped>
             <thead>
               <th>Days</th>
@@ -27,7 +45,7 @@ class Index extends Component {
             </thead>
             <tbody>
               <tr>
-                <td>Monday / Tuesday / Wednesday</td>
+                <td>Monday / Tuesday / Wednesday can</td>
                 <td>2PM - 7PM</td>
                 <td>Available</td>
                 <td>
@@ -57,6 +75,17 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
+
+      <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop={this.state.backdrop}>
+        <ModalHeader toggle={this.toggle}>Modal Title</ModalHeader>
+        <ModalBody>
+          Modal Body
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+          <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+        </ModalFooter>
+      </Modal>
     </div>);
   }
 }
