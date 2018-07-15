@@ -4,9 +4,9 @@ import { Button, Col, CustomInput, Form, FormGroup, Input, Label,
   Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
-import Days from '../components/Days'
-import TimeStart from '../components/TimeStart'
-import TimeEnd from '../components/TimeEnd'
+import Days from './../../../../atoms/Days'
+import TimeStart from './../../../../atoms/TimeStart'
+import TimeEnd from './../../../../atoms/TimeEnd'
 
 
 class Index extends Component {
@@ -30,7 +30,7 @@ class Index extends Component {
 
 
   return (<div>
-      <Button color="primary" size="sm" onClick={this.toggle}>Add</Button>
+      <Button color="primary" size="sm" onClick={this.toggle}>Add berubah</Button>
       <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
         <ModalHeader toggle={this.toggle}>Add Free Time</ModalHeader>
         <ModalBody>
