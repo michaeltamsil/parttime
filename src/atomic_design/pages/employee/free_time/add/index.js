@@ -30,7 +30,7 @@ class Index extends Component {
 
 
   return (<div>
-      <Button color="primary" size="sm" onClick={this.toggle}>Add berubah</Button>
+      <Button color="primary" size="sm" onClick={this.toggle}>Add</Button>
       <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
         <ModalHeader toggle={this.toggle}>Add Free Time</ModalHeader>
         <ModalBody>
