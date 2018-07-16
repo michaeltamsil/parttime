@@ -4,9 +4,26 @@ import { NavLink } from 'react-router-dom';
 import { Button, Col, Container, Form, FormGroup, Nav, NavItem, Row, Table } from 'reactstrap';
 
 import Create from './create';
-import Update from './update';
+import Edit from './edit';
 
 class Index extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      modal: false,
+      edit:{
+        show: false
+      }
+    }
+
+    this.showEdit = this.showEdit.bind(this)
+  }
+
+  showEdit() {
+    debugger;
+    //this.setState( { this.state, showUpdate: true} )
+  }
 
 
   render = () => {
@@ -14,7 +31,6 @@ class Index extends Component {
       <Row>
         <Col>
           <Create/>
-          <Update/>
         </Col>
       </Row>
       <Row>
@@ -34,7 +50,7 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Available</td>
                 <td>
-                  <button className="btn btn-warning btn-sm mr-2">Edit</button>
+                  <button className="btn btn-warning btn-sm mr-2" onClick={this.showEdit}>Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
               </tr>
@@ -60,6 +76,7 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
+      <Edit/>
     </div>);
 
   }

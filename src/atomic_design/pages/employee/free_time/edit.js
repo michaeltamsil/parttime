@@ -9,7 +9,7 @@ import TimeStart from './../../../atoms/TimeStart'
 import TimeEnd from './../../../atoms/TimeEnd'
 
 
-class Update extends Component {
+class Edit extends Component {
 
   constructor(props) {
     super(props)
@@ -60,4 +60,4 @@ class Update extends Component {
     </div>);
   }
 }
-export default Update;
+export default Edit;
