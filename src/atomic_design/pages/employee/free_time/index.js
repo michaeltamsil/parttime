@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Button, Col, Container, Form, FormGroup, Nav, NavItem, Row, Table } from 'reactstrap';
 
-import { Index as Add } from './add';
+import Create from './create';
+import Update from './update';
 
 class Index extends Component {
 
@@ -12,7 +13,8 @@ class Index extends Component {
     return (<div>
       <Row>
         <Col>
-          <Add/>
+          <Create/>
+          <Update/>
         </Col>
       </Row>
       <Row>

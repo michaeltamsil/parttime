@@ -14,7 +14,7 @@ class Header extends Component {
   }
   render() {
     return (<Row className="mt-3">
-      <Col sm="4">
+      <Col>
         <NavLink className="btn btn-primary btn-sm mr-3" to="/employee">Employee</NavLink>
         <NavLink className="btn btn-primary btn-sm mr-3" to="/employer">Employer</NavLink>
       </Col>

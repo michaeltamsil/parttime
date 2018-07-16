@@ -4,12 +4,12 @@ import { Button, Col, CustomInput, Form, FormGroup, Input, Label,
   Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
-import Days from './../../../../atoms/Days'
-import TimeStart from './../../../../atoms/TimeStart'
-import TimeEnd from './../../../../atoms/TimeEnd'
+import Days from './../../../atoms/Days'
+import TimeStart from './../../../atoms/TimeStart'
+import TimeEnd from './../../../atoms/TimeEnd'
 
 
-class Index extends Component {
+class Update extends Component {
 
   constructor(props) {
     super(props)
@@ -30,7 +30,6 @@ class Index extends Component {
 
 
   return (<div>
-      <Button color="primary" size="sm" onClick={this.toggle}>Add</Button>
       <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
         <ModalHeader toggle={this.toggle}>Add Free Time</ModalHeader>
         <ModalBody>
@@ -61,5 +60,4 @@ class Index extends Component {
     </div>);
   }
 }
-export { Index };
-export default Index;
+export default Update;

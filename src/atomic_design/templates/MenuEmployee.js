@@ -4,7 +4,6 @@ import { Col, Nav, NavItem, Row } from 'reactstrap'
 
 import Profile from '../pages/employee/profile'
 import Free_Time from '../pages/employee/free_time'
-import Free_TimeAdd from '../pages/employee/free_time/add'
 import Jobs from '../pages/employee/jobs'
 import Applied_Jobs from '../pages/employee/applied_jobs'
 
@@ -45,11 +44,6 @@ class MenuEmployee extends Component {
           path={`${path}/free_time`}
           exact={true}
           render = { props => <Free_Time { ...props } />}
-        />
-        <Route
-          path={`${path}/free_time/add`}
-          exact={true}
-          render = { props => <Free_TimeAdd { ...props } />}
         />
         <Route
           path={`${path}/jobs`}
