@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import FacebookLogin from 'react-facebook-login';
 
 import Layout from '../../templates/Layout';
+
+const responseFacebook = (response) => {
+  console.log(response);
+}
 
 class Index extends Component {
 
@@ -25,9 +30,11 @@ class Index extends Component {
     //   isRedirected: true
     // })
   }
+
+  
   
   render = () => {
-    const { authentication } = this.props
+    
     
     return (<div>
       { this.state.isRedirected ? <Redirect to="/employee/free_time" /> : null }
@@ -49,6 +56,11 @@ class Index extends Component {
                     </span>
                     Connect With Facebook
                   </button>
+                  <FacebookLogin
+                    appId="323921654813697"
+                    autoLoad={true}
+                    fields="name,email,picture"
+                    callback={responseFacebook} />
                 </div>
               </div>
             </div>

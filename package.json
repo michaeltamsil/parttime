@@ -61,6 +61,7 @@
     "react-datepicker": "^1.5.0",
     "react-dom": "^16.4.1",
     "react-escape-html": "^1.0.5",
+    "react-facebook-login": "^4.0.1",
     "react-fontawesome": "^1.6.1",
     "react-hot-loader": "^3.0.0",
     "react-places-autocomplete": "^7.1.2",

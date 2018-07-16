@@ -8,7 +8,7 @@ class Routes extends Component {
   constructor(props){
     super(props)
     this.state = {
-      isLogin: true,
+      isLogin: false,
       updateLogin: bol => {
         this.setState({
           isLogin: bol
@@ -19,6 +19,8 @@ class Routes extends Component {
 
   render = () => {
     let state = this.state;
+
+
     return (
       <div>
         <Switch>
