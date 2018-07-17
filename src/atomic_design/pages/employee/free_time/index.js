@@ -5,24 +5,51 @@ import { Button, Col, Container, Form, FormGroup, Nav, NavItem, Row, Table } fro
 
 import Create from './create';
 import Edit from './edit';
+import Confirm from '../../../atoms/Confirm';
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      modal: false,
-      edit:{
-        show: false
-      }
+      showCreate: false,
+      showEdit: false
     }
 
+    this.showCreate = this.showCreate.bind(this)
+    this.hideCreate = this.hideCreate.bind(this)
     this.showEdit = this.showEdit.bind(this)
+    this.hideEdit = this.hideEdit.bind(this)
+    this.showConfirmDelete = this.showConfirmDelete.bind(this)
+  }
+
+  showCreate() {
+    this.setState({
+      showCreate: true
+    })
+  }
+
+  hideCreate(){
+    this.setState({
+      showCreate: false
+    })
   }
 
   showEdit() {
+    this.setState({
+      showEdit: true
+    })
+  }
+
+  hideEdit(){
+    this.setState({
+      showEdit: false
+    })
+  }
+
+  showConfirmDelete(){
     debugger;
-    //this.setState( { this.state, showUpdate: true} )
+    Confirm('test');
   }
 
 
@@ -30,7 +57,7 @@ class Index extends Component {
     return (<div>
       <Row>
         <Col>
-          <Create/>
+        <Button color="primary" size="sm" onClick={this.showCreate}>Create</Button>
         </Col>
       </Row>
       <Row>
@@ -51,7 +78,7 @@ class Index extends Component {
                 <td>Available</td>
                 <td>
                   <button className="btn btn-warning btn-sm mr-2" onClick={this.showEdit}>Edit</button>
-                  <button className="btn btn-danger btn-sm">Delete</button>
+                  <button className="btn btn-danger btn-sm" onClick={this.showConfirmDelete}>Delete</button>
                 </td>
               </tr>
               <tr>
@@ -76,7 +103,8 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
-      <Edit/>
+      <Create isOpen={this.state.showCreate} hide={this.hideCreate} />
+      <Edit isOpen={this.state.showEdit} hide={this.hideEdit} />
     </div>);
 
   }

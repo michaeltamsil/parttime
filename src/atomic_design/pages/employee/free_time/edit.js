@@ -14,16 +14,20 @@ class Edit extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      modal: false
+      modal: this.props.isOpen || false
     }
 
     this.toggle = this.toggle.bind(this)
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.isOpen != this.props.isOpen){
+      this.setState({modal: this.props.isOpen})
+    }
+  }
+
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    })
+    this.props.hide()
   }
 
   render = () => {
@@ -31,7 +35,7 @@ class Edit extends Component {
 
   return (<div>
       <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
-        <ModalHeader toggle={this.toggle}>Add Free Time</ModalHeader>
+        <ModalHeader toggle={this.toggle}>Edit Free Time</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup row>

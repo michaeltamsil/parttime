@@ -14,51 +14,51 @@ class Create extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      modal: false
+      modal: this.props.isOpen || false
     }
-
     this.toggle = this.toggle.bind(this)
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.isOpen != this.props.isOpen){
+      this.setState({modal: this.props.isOpen})
+    }
+  }
+
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    })
+    this.props.hide()
   }
 
   render = () => {
 
 
-  return (<div>
-      <Button color="primary" size="sm" onClick={this.toggle}>Create</Button>
-      <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
-        <ModalHeader toggle={this.toggle}>Create Free Time</ModalHeader>
-        <ModalBody>
-          <Form>
-            <FormGroup row>
-              <Label sm={2}>Days</Label>
-              <Col sm={10}>
-                <Days/>
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Label sm={2}>Time</Label>
-              <Col sm={4}>
-                <TimeStart/>
-              </Col>
-              <Col className="text-center" sm={1}>-</Col>
-              <Col sm={4}>
-                <TimeEnd/>
-              </Col>
-            </FormGroup>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="success" onClick={this.toggle}>Create</Button>{' '}
-          <Button color="light" onClick={this.toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
-    </div>);
+  return (<Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
+      <ModalHeader toggle={this.toggle}>Create Free Time</ModalHeader>
+      <ModalBody>
+        <Form>
+          <FormGroup row>
+            <Label sm={2}>Days</Label>
+            <Col sm={10}>
+              <Days/>
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label sm={2}>Time</Label>
+            <Col sm={4}>
+              <TimeStart/>
+            </Col>
+            <Col className="text-center" sm={1}>-</Col>
+            <Col sm={4}>
+              <TimeEnd/>
+            </Col>
+          </FormGroup>
+        </Form>
+      </ModalBody>
+      <ModalFooter>
+        <Button color="success" onClick={this.toggle}>Create</Button>{' '}
+        <Button color="light" onClick={this.toggle}>Cancel</Button>
+      </ModalFooter>
+    </Modal>);
   }
 }
 export default Create;
