@@ -5,7 +5,7 @@ import { Button, Col, Container, Form, FormGroup, Nav, NavItem, Row, Table } fro
 
 import Create from './create';
 import Edit from './edit';
-import Confirm from '../../../atoms/Confirm';
+import confirm from '../../../atoms/confirm';
 
 class Index extends Component {
 
@@ -48,12 +48,23 @@ class Index extends Component {
   }
 
   showConfirmDelete(){
-    debugger;
+
     Confirm('test');
+  }
+
+  componentDidUpdate(){
+    confirm('test').then(
+      (result) => {
+        console.log('proceed called');
+      },(result) => {
+        console.log('canceled')
+      }
+    )
   }
 
 
   render = () => {
+    
     return (<div>
       <Row>
         <Col>
