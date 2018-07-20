@@ -49,8 +49,7 @@ class Index extends Component {
 
   showConfirmDelete(){
 
-    confirm('test').then((result) => {console.log('success');},
-      (result) => {console.log('cancel');})
+    confirm('test').then( (result) => {})
   }
 
   render = () => {
