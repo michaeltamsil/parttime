@@ -3,7 +3,31 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Button, Col, Row, Table } from 'reactstrap'
 
+import Apply from './apply';
+
 class Index extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      showApply: false,
+    }
+
+    this.showApply = this.showApply.bind(this)
+    this.hideApply = this.hideApply.bind(this)
+  }
+
+  showApply() {
+    this.setState({
+      showApply: true
+    })
+  }
+
+  hideApply(){
+    this.setState({
+      showApply: false
+    })
+  }
   
   render = () => {
     return (<div>
@@ -11,15 +35,17 @@ class Index extends Component {
         <Col className="mt-4">
           <Table striped>
             <thead>
-              <th>Days</th>
-              <th>Time</th>
-              <th>Date</th>
-              <th>Position</th>
-              <th>Description</th>
-              <th>Salary</th>
-              <th>Location</th>
-              <th>Employer</th>
-              <th colSpan={2}>Status</th>
+              <tr>
+                <th>Days</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Position</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Location</th>
+                <th>Employer</th>
+                <th colSpan={2}>Status</th>
+              </tr>
             </thead>
             <tbody className="small">
               <tr>
@@ -32,7 +58,7 @@ class Index extends Component {
                 <td> Godiva Coffee Nagoya Hill</td>
                 <td>Darvin Yuhuuu</td>
                 <td>Available</td>
-                <td><Button color="success" size="sm">Apply</Button></td>
+                <td><Button color="success" size="sm" onClick={this.showApply}>Apply</Button></td>
               </tr>
               <tr>
                 <td>Saturday / Sunday</td>
@@ -50,6 +76,7 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
+      <Apply isOpen={this.state.showApply} hide={this.hideApply} />
     </div>);
   }
 }

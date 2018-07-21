@@ -11,15 +11,17 @@ class Index extends Component {
         <Col className="mt-4">
           <Table striped>
             <thead>
-              <th>Days</th>
-              <th>Time</th>
-              <th>Date</th>
-              <th>Position</th>
-              <th>Description</th>
-              <th>Salary</th>
-              <th>Location</th>
-              <th>Employer</th>
-              <th>Status</th>
+              <tr>
+                <th>Days</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Position</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Location</th>
+                <th>Employer</th>
+                <th>Status</th>
+              </tr>
             </thead>
             <tbody className="small">
               <tr>

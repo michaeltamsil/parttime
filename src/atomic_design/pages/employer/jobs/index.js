@@ -1,29 +1,86 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { Button, Col, Container, Nav, NavItem, Row, Table } from 'reactstrap';
+import { Button, Col, Container, Row, Table } from 'reactstrap';
+
+import Create from './create';
+import Edit from './edit';
+import confirm from '../../../atoms/confirm';
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      showCreate: false,
+      showEdit: false
+    }
+
+    this.showCreate = this.showCreate.bind(this)
+    this.hideCreate = this.hideCreate.bind(this)
+    this.showEdit = this.showEdit.bind(this)
+    this.hideEdit = this.hideEdit.bind(this)
+    this.showConfirmDelete = this.showConfirmDelete.bind(this)
+  }
+
+  showCreate() {
+    console.log('showCreate')
+    this.setState({
+      showCreate: true
+    })
+  }
+
+  hideCreate(){
+    this.setState({
+      showCreate: false
+    })
+  }
+
+  showEdit() {
+    this.setState({
+      showEdit: true
+    })
+  }
+
+  hideEdit(){
+    this.setState({
+      showEdit: false
+    })
+  }
+
+  showConfirmDelete(){
+
+    confirm('Do you want to delete this job?', {
+      type: 'delete',
+      dismiss: function(){
+        console.log('tertutup')
+      },
+      proceed: function(message){
+        console.log(message);
+      },
+      cancel: function(message){
+        console.log(message);
+      }
+    }).then( (result) => {console.log(result);})
   }
 
   render = () => {
+
     return (<div>
       <Row>
         <Col>
-          <Button color="primary" size="sm">Add</Button>
+          <Button color="success" size="sm" onClick={this.showCreate}>Create</Button>
         </Col>
       </Row>
       <Row>
-        <Col className="mt-2">
-          <Table striped>
+        <Col>
+          <Table striped size="sm">
             <thead>
-              <th>Days</th>
-              <th>Time</th>
-              <th>Status</th>
-              <th>Action</th>
+              <tr>
+                <th>Days</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
@@ -31,8 +88,8 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Available</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2">Edit</button>
-                  <button className="btn btn-danger btn-sm">Delete</button>
+                  <button className="btn btn-warning btn-sm mr-2 text-white" onClick={this.showEdit}>Edit</button>
+                  <button className="btn btn-danger btn-sm" onClick={this.showConfirmDelete}>Delete</button>
                 </td>
               </tr>
               <tr>
@@ -40,7 +97,7 @@ class Index extends Component {
                 <td>3PM - 9PM</td>
                 <td>Available</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2">Edit</button>
+                  <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
               </tr>
@@ -49,7 +106,7 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Hired</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2">Edit</button>
+                  <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
               </tr>
@@ -57,6 +114,8 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
+      <Create isOpen={this.state.showCreate} hide={this.hideCreate} />
+      <Edit isOpen={this.state.showEdit} hide={this.hideEdit} />
     </div>);
   }
 }

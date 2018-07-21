@@ -16,6 +16,7 @@ class Create extends Component {
     this.state = {
       modal: this.props.isOpen || false
     }
+
     this.toggle = this.toggle.bind(this)
   }
 
@@ -33,7 +34,7 @@ class Create extends Component {
 
 
   return (<Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
-      <ModalHeader toggle={this.toggle}>Create Free Time</ModalHeader>
+      <ModalHeader className="bg-success text-white" toggle={this.toggle}>Create Free Time</ModalHeader>
       <ModalBody>
         <Form>
           <FormGroup row>
@@ -52,11 +53,22 @@ class Create extends Component {
               <TimeEnd/>
             </Col>
           </FormGroup>
+          <FormGroup row>
+            <Label sm={2} for="status">Status</Label>
+            <Col sm={10}>
+              <FormGroup check>
+                <Label check>
+                  <Input type="checkbox" id="status"/>{' '}
+                  Available
+                </Label>
+              </FormGroup>
+            </Col>
+          </FormGroup>
         </Form>
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={this.toggle}>Create</Button>{' '}
-        <Button color="light" onClick={this.toggle}>Cancel</Button>
+        <Button color="light" onClick={this.toggle}>Cancel</Button>{' '}
+        <Button color="success" onClick={this.toggle}>Create</Button>
       </ModalFooter>
     </Modal>);
   }
