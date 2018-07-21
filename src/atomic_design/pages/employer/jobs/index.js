@@ -88,6 +88,7 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Available</td>
                 <td>
+                  <button className="btn btn-primary btn-sm mr-2">Detail</button>
                   <button className="btn btn-warning btn-sm mr-2 text-white" onClick={this.showEdit}>Edit</button>
                   <button className="btn btn-danger btn-sm" onClick={this.showConfirmDelete}>Delete</button>
                 </td>
@@ -97,6 +98,7 @@ class Index extends Component {
                 <td>3PM - 9PM</td>
                 <td>Available</td>
                 <td>
+                  <button className="btn btn-primary btn-sm mr-2">Detail</button>
                   <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
@@ -106,6 +108,7 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Hired</td>
                 <td>
+                  <button className="btn btn-primary btn-sm mr-2">Detail</button>
                   <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>

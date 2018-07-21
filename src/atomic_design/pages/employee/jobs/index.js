@@ -1,35 +1,33 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import { Button, Col, Row, Table } from 'reactstrap'
 
-import Apply from './apply';
+import apply from './apply';
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      showApply: false,
-    }
 
     this.showApply = this.showApply.bind(this)
-    this.hideApply = this.hideApply.bind(this)
   }
 
   showApply() {
-    this.setState({
-      showApply: true
+    apply({
+      proceed: () => {
+        console.log('proceed')
+      },
+      cancel: () => {
+        console.log('cancel')
+      },
+      dismiss: () => {
+
+      }
     })
   }
 
-  hideApply(){
-    this.setState({
-      showApply: false
-    })
-  }
-  
   render = () => {
+  
     return (<div>
       <Row>
         <Col className="mt-4">
@@ -76,7 +74,6 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
-      <Apply isOpen={this.state.showApply} hide={this.hideApply} />
     </div>);
   }
 }

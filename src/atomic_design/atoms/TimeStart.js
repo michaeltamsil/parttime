@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from 'reactstrap'
 
-const TimeStart = () => (<div style={{display:"inline-block"}}>
+export default () => (<div style={{display:"inline-block"}}>
     <Input className="d-inline" type="select" name="timeStart" style={{width:"auto"}}>
         <option>0</option>
         <option>1</option>
@@ -20,6 +20,4 @@ const TimeStart = () => (<div style={{display:"inline-block"}}>
         <option>AM</option>
         <option>PM</option>
     </Input>
-</div>);
-
-export default TimeStart;
+</div>)

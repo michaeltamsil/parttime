@@ -13,11 +13,18 @@ class Confirmable extends Component {
     this.toggle = this.toggle.bind(this)
   }
 
-  toggle(doNext) {
+  toggle(doNext = undefined) {
     this.setState({
       modal: !this.state.modal
     })
-    doNext && doNext()
+    
+    if (doNext){
+      if(typeof doNext == 'function'){
+        doNext();
+      }else{
+        this.props.cancel();
+      }
+    }
   }
   
   render() {
@@ -35,8 +42,8 @@ class Confirmable extends Component {
     }
 
     return (
-      <Modal onClosed={dismiss} isOpen={this.state.modal}>
-        <ModalHeader className={modalHeaderClassName}>Confirmation</ModalHeader>
+      <Modal onClosed={dismiss} isOpen={this.state.modal} toggle={this.toggle}>
+        <ModalHeader className={modalHeaderClassName} toggle={this.toggle}>Confirmation</ModalHeader>
         <ModalBody>
           {confirmation}
         </ModalBody>

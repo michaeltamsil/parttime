@@ -1,48 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Col, Container, Row, Table } from 'reactstrap';
+import { Button, Col, Row, Table } from 'reactstrap';
 
-import Create from './create';
-import Edit from './edit';
+import create from './create';
+import edit from './edit';
 import confirm from '../../../atoms/confirm';
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      showCreate: false,
-      showEdit: false
-    }
 
     this.showCreate = this.showCreate.bind(this)
-    this.hideCreate = this.hideCreate.bind(this)
     this.showEdit = this.showEdit.bind(this)
-    this.hideEdit = this.hideEdit.bind(this)
     this.showConfirmDelete = this.showConfirmDelete.bind(this)
   }
 
   showCreate() {
-    this.setState({
-      showCreate: true
-    })
-  }
-
-  hideCreate(){
-    this.setState({
-      showCreate: false
+    create({
+      proceed: () => {
+        console.log('proceed');
+      },
+      cancel: () => {
+        console.log('cancel')
+      },
+      dismiss: () => {
+        console.log('tertutup');
+      }
     })
   }
 
   showEdit() {
-    this.setState({
-      showEdit: true
-    })
-  }
-
-  hideEdit(){
-    this.setState({
-      showEdit: false
+    edit({
+      proceed: function(message){
+        console.log('proceed');
+      },
+      cancel: function(message){
+        console.log('cancel')
+      },
+      dismiss: function(){
+        console.log('tertutup');
+      }
     })
   }
 
@@ -50,16 +48,16 @@ class Index extends Component {
 
     confirm('Do you want to delete this free time?', {
       type: 'delete',
-      dismiss: function(){
-        console.log('tertutup')
-      },
       proceed: function(message){
-        console.log(message);
+        console.log('proceed');
       },
       cancel: function(message){
-        console.log(message);
+        console.log('cancel');
+      },
+      dismiss: function(){
+        console.log('tertutup')
       }
-    }).then( (result) => {console.log(result);})
+    })
   }
 
   render = () => {
@@ -71,11 +69,11 @@ class Index extends Component {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col sm={6}>
           <Table striped size="sm">
             <thead>
               <tr>
-                <th>Days</th>
+                <th>Day</th>
                 <th>Time</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -83,7 +81,7 @@ class Index extends Component {
             </thead>
             <tbody>
               <tr>
-                <td>Monday / Tuesday / Wednesday can</td>
+                <td>Monday</td>
                 <td>2PM - 7PM</td>
                 <td>Available</td>
                 <td>
@@ -92,7 +90,7 @@ class Index extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Thursday / Friday</td>
+                <td>Thursday</td>
                 <td>3PM - 9PM</td>
                 <td>Available</td>
                 <td>
@@ -101,7 +99,7 @@ class Index extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Saturday / sunday</td>
+                <td>Saturday</td>
                 <td>2PM - 7PM</td>
                 <td>Hired</td>
                 <td>
@@ -113,8 +111,6 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
-      <Create isOpen={this.state.showCreate} hide={this.hideCreate} />
-      <Edit isOpen={this.state.showEdit} hide={this.hideEdit} />
     </div>);
 
   }
