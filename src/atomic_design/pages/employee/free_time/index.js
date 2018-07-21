@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Button, Col, Row, Table } from 'reactstrap';
 
 import create from './create';
@@ -45,7 +44,6 @@ class Index extends Component {
   }
 
   showConfirmDelete(){
-
     confirm('Do you want to delete this free time?', {
       type: 'delete',
       proceed: function(message){
@@ -115,4 +113,4 @@ class Index extends Component {
 
   }
 }
-export default connect()(Index);
+export default Index;

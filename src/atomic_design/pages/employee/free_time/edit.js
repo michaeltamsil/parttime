@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { confirmable, createConfirmation } from 'react-confirm';
-import { Button, Col, CustomInput, Form, FormGroup, Input, Label,
+import { Button, Col, Form, FormGroup, Input, Label,
   Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 

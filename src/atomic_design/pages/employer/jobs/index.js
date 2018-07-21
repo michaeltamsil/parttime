@@ -2,53 +2,58 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Col, Container, Row, Table } from 'reactstrap';
 
-import Create from './create';
-import Edit from './edit';
+import create from './create';
+import edit from './edit';
 import confirm from '../../../atoms/confirm';
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      showCreate: false,
-      showEdit: false
-    }
 
     this.showCreate = this.showCreate.bind(this)
-    this.hideCreate = this.hideCreate.bind(this)
     this.showEdit = this.showEdit.bind(this)
-    this.hideEdit = this.hideEdit.bind(this)
+    this.showDetail = this.showDetail.bind(this)
     this.showConfirmDelete = this.showConfirmDelete.bind(this)
   }
 
   showCreate() {
-    console.log('showCreate')
-    this.setState({
-      showCreate: true
+    create({
+      proceed: () => {
+        console.log('proceed');
+      },
+      cancel: () => {
+        console.log('cancel')
+      },
+      dismiss: () => {
+        console.log('tertutup');
+      }
     })
   }
 
-  hideCreate(){
-    this.setState({
-      showCreate: false
+  showEdit(e) {
+    // debugger;
+    e.preventDefault()
+    e.stopPropagation()
+
+    edit({
+      proceed: function(message){
+        console.log('proceed');
+      },
+      cancel: function(message){
+        console.log('cancel')
+      },
+      dismiss: function(){
+        console.log('tertutup');
+      }
     })
   }
 
-  showEdit() {
-    this.setState({
-      showEdit: true
-    })
-  }
-
-  hideEdit(){
-    this.setState({
-      showEdit: false
-    })
+  showDetail(e) {    
+    alert('show detail')
   }
 
   showConfirmDelete(){
-
     confirm('Do you want to delete this job?', {
       type: 'delete',
       dismiss: function(){
@@ -73,7 +78,7 @@ class Index extends Component {
       </Row>
       <Row>
         <Col>
-          <Table striped size="sm">
+          <Table striped size="sm" hover>
             <thead>
               <tr>
                 <th>Days</th>
@@ -83,12 +88,11 @@ class Index extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className="hover" onClick={this.showDetail}>
                 <td>Monday / Tuesday / Wednesday</td>
                 <td>2PM - 7PM</td>
                 <td>Available</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2">Detail</button>
                   <button className="btn btn-warning btn-sm mr-2 text-white" onClick={this.showEdit}>Edit</button>
                   <button className="btn btn-danger btn-sm" onClick={this.showConfirmDelete}>Delete</button>
                 </td>
@@ -98,7 +102,6 @@ class Index extends Component {
                 <td>3PM - 9PM</td>
                 <td>Available</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2">Detail</button>
                   <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
@@ -108,7 +111,6 @@ class Index extends Component {
                 <td>2PM - 7PM</td>
                 <td>Hired</td>
                 <td>
-                  <button className="btn btn-primary btn-sm mr-2">Detail</button>
                   <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
@@ -117,9 +119,7 @@ class Index extends Component {
           </Table>
         </Col>
       </Row>
-      <Create isOpen={this.state.showCreate} hide={this.hideCreate} />
-      <Edit isOpen={this.state.showEdit} hide={this.hideEdit} />
     </div>);
   }
 }
-export default connect()(Index);
+export default Index;

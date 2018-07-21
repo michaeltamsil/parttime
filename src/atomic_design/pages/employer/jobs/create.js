@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Button, Col, CustomInput, Form, FormGroup, Input, Label,
+import { confirmable, createConfirmation } from 'react-confirm';
+import { Button, Col, Form, FormGroup, Input, Label,
   Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
@@ -14,26 +14,30 @@ class Create extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      modal: this.props.isOpen || false
+      modal: true
     }
-    this.toggle = this.toggle.bind(this)
+    this.proceed = this.proceed.bind(this)
+    this.cancel = this.cancel.bind(this)
   }
 
-  componentDidUpdate(prevProps){
-    if (prevProps.isOpen != this.props.isOpen){
-      this.setState({modal: this.props.isOpen})
-    }
+  proceed() {
+    this.setState({
+      modal: false
+    })
+    this.props.proceed && this.props.proceed()
   }
 
-  toggle() {
-    this.props.hide()
+  cancel() {
+    this.setState({
+      modal: false
+    })
+    this.props.cancel && this.props.cancel()
   }
 
   render = () => {
-
-
-  return (<Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static" size="lg">
-      <ModalHeader className="bg-success text-white" toggle={this.toggle}>Create Job</ModalHeader>
+    const { dismiss } = this.props
+  return (<Modal onClosed={dismiss} isOpen={this.state.modal} toggle={this.cancel} backdrop="static" size="lg">
+      <ModalHeader className="bg-success text-white" toggle={this.cancel}>Create Job</ModalHeader>
       <ModalBody>
         <Form>
           <FormGroup row>
@@ -81,7 +85,7 @@ class Create extends Component {
                 <option>USD</option>
                 <option>IDR</option>
               </select>
-              <nput type="text"/>
+              <input type="text"/>
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -103,10 +107,15 @@ class Create extends Component {
         </Form>
       </ModalBody>
       <ModalFooter>
-        <Button color="light" onClick={this.toggle}>Cancel</Button>{' '}
-        <Button color="success" onClick={this.toggle}>Create</Button>
+        <Button color="light" onClick={this.cancel}>Cancel</Button>{' '}
+        <Button color="success" onClick={this.proceed}>Create</Button>
       </ModalFooter>
     </Modal>);
   }
 }
-export default Create;
+
+const confirm = createConfirmation(confirmable(Create))
+
+export default function(options = {}){
+  return confirm(options)
+}
