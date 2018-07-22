@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import {Col, Row } from 'reactstrap'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,4 +24,4 @@ class Index extends Component {
     </div>);
   }
 }
-export default connect()(Index);
+export default Index;

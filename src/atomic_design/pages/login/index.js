@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
-
-import Layout from '../../templates/Layout';
 
 const responseFacebook = (response) => {
   console.log(response);
@@ -70,4 +66,4 @@ class Index extends Component {
     </div>);
   }
 }
-export default connect()(Index);
+export default Index;

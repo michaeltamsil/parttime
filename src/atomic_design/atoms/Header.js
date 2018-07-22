@@ -1,12 +1,6 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Button, Col, Row} from 'reactstrap';
+import {Col, Row} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-
-import {Link} from 'react-router-dom'
-import {logoutUser} from '../../redux/modules/authentication';
-import {deleteCookie, getCookie} from '../../helpers/cookie-utils';
 
 class Header extends Component {
   constructor(props) {
@@ -21,4 +15,4 @@ class Header extends Component {
     </Row>);
   }
 }
-export default connect()(Header);
+export default Header;

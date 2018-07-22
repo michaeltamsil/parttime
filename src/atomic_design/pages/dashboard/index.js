@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Layout from '../../templates/Layout';
 import MenuEmployee from '../../templates/MenuEmployee';
 import MenuEmployer from '../../templates/MenuEmployer';
@@ -13,7 +11,6 @@ class Dashboard extends Component {
   }
   
   render = () => {
-    const { authentication } = this.props
     return (
       <Layout {...this.props}>
         <Switch>
@@ -29,4 +26,4 @@ class Dashboard extends Component {
       </Layout>);
   }
 }
-export default connect()(Dashboard);
+export default Dashboard;

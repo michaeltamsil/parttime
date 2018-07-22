@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Button, Col, Container, Row, Table } from 'reactstrap';
+import { Button, Col, Row, Table } from 'reactstrap';
 
 import create from './create';
 import edit from './edit';

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Button, Col, Row, Table } from 'reactstrap'
 
 import apply from './apply';
@@ -77,4 +76,4 @@ class Index extends Component {
     </div>);
   }
 }
-export default connect()(Index);
+export default Index;

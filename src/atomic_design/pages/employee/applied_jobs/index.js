@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import {Col, Row, Table } from 'reactstrap'
 
 class Index extends Component {
@@ -53,4 +51,4 @@ class Index extends Component {
     </div>);
   }
 }
-export default connect()(Index);
+export default Index;

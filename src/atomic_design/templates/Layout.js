@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './../atoms/Header'
-import Footer from './../atoms/Footer'
 import { Container } from 'reactstrap'
 
 class MainLayout extends React.Component {
