@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { confirmable, createConfirmation } from 'react-confirm';
-import { Button, Col, Form, FormGroup, Input, Label,
+import { Button, Col, Form, FormGroup, Input,
+  InputGroup, InputGroupAddon, Label,
   Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
@@ -80,22 +81,30 @@ class Create extends Component {
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Salary</Label>
-            <Col sm={10}>
-              <select>
-                <option>USD</option>
-                <option>IDR</option>
-              </select>
-              <input type="text"/>
+            <Col sm={4}>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <select className="form-control">
+                    <option>USD</option>
+                    <option>IDR</option>
+                  </select>
+                </InputGroupAddon>
+                <Input/>
+              </InputGroup>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Pay Period</Label>
-            <Col sm={10}>
-              <select>
-                <option>Hourly</option>
-                <option>per day</option>
-              </select>
-              <input type="text"/>
+            <Col sm={4}>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <Input type="select">
+                    <option>Hourly</option>
+                    <option>per day</option>
+                  </Input>
+                </InputGroupAddon>
+                <Input/>
+              </InputGroup>
             </Col>
           </FormGroup>
           <FormGroup row>
