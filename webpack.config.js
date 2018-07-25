@@ -7,7 +7,7 @@ module.exports = () => ({
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:99',
     path.join(__dirname, './src/index.js'),
   ],
   output: {
@@ -49,6 +49,6 @@ module.exports = () => ({
     historyApiFallback: true,
     contentBase: './src',
     hot: true,
-    port: 8080
+    port: 99
   },
 });
