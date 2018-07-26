@@ -21,9 +21,6 @@ class MenuEmployee extends Component {
     <Col md="12">
       <Nav tabs>
         <NavItem>
-          <NavLink className="nav-link" to="/employee/profile">Profile</NavLink>
-        </NavItem>
-        <NavItem>
           <NavLink className="nav-link" to="/employee/free_time">Free Time</NavLink>
         </NavItem>
         <NavItem>
@@ -31,6 +28,9 @@ class MenuEmployee extends Component {
         </NavItem>
         <NavItem>
           <NavLink className="nav-link" to="/employee/applied_jobs">Applied Jobs</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink className="nav-link" to="/employee/profile">Profile</NavLink>
         </NavItem>
       </Nav>
     </Col>

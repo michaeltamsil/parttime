@@ -97,7 +97,7 @@ class Index extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Saturday</td>
+                <td>Sunday</td>
                 <td>2PM - 7PM</td>
                 <td>Hired</td>
                 <td>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Col, Row, Table } from 'reactstrap'
+import {Button, Col, Row, Table } from 'reactstrap'
 
 import apply from './apply';
 
@@ -45,30 +45,32 @@ class Index extends Component {
               </tr>
             </thead>
             <tbody className="small">
+
               <tr>
-                <td>Monday / Tuesday / Wednesday</td>
+                <td>Monday</td>
                 <td>2PM - 7PM</td>
                 <td>Juli 1ˢᵗ - 31ᵗʰ 2018</td>
-                <td>Waitress</td>
-                <td>Take order / server dished / pickup ...</td>
-                <td>Rp 10k / day</td>
-                <td> Godiva Coffee Nagoya Hill</td>
-                <td>Darvin Yuhuuu</td>
+                <td>bodyguard</td>
+                <td>protect customer</td>
+                <td>USD 3/hour</td>
+                <td>Rumah Makan Nasi Padang</td>
+                <td>Michael Tamsil</td>
                 <td>Available</td>
                 <td><Button color="success" size="sm" onClick={this.showApply}>Apply</Button></td>
               </tr>
               <tr>
-                <td>Saturday / Sunday</td>
-                <td>9PM - 9PM</td>
-                <td>July 1ˢᵗ - 31ᵗʰ 2018</td>
-                <td>Waitress</td>
-                <td>Take order / serve dishes / pickup dirty</td>
-                <td>Rp 20k / day</td>
-                <td>Godiva Coffee Nagoya Hill</td>
-                <td>Darvin Yuhuuu</td>
-                <td>Availabel</td>
-                <td><Button color="success" size="sm">Apply</Button></td>
+                <td>Monday - Friday</td>
+                <td>7AM - 3PM</td>
+                <td>August 1ˢᵗ - 31ᵗʰ 2018</td>
+                <td>programmer</td>
+                <td>Fullstack dev</td>
+                <td>USD 5/hour</td>
+                <td>at startup Properio</td>
+                <td>Joko</td>
+                <td>Available</td>
+                <td><Button color="success" size="sm" onClick={this.showApply}>Apply</Button></td>
               </tr>
+              
             </tbody>
           </Table>
         </Col>

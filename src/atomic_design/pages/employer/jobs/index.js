@@ -52,7 +52,8 @@ class Index extends Component {
     alert('show detail')
   }
 
-  showConfirmDelete(){
+  showConfirmDelete(event){
+    debugger
     confirm('Do you want to delete this job?', {
       type: 'delete',
       dismiss: function(){
@@ -87,10 +88,19 @@ class Index extends Component {
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>Saturday / sunday</td>
+                <td>2PM - 7PM</td>
+                <td>1 deal, 3 approved, 5 people applied</td>
+                <td>
+                  <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
+                  <button className="btn btn-danger btn-sm">Delete</button>
+                </td>
+              </tr>
               <tr className="hover" onClick={this.showDetail}>
                 <td>Monday / Tuesday / Wednesday</td>
                 <td>2PM - 7PM</td>
-                <td>Available</td>
+                <td>10 People applied</td>
                 <td>
                   <button className="btn btn-warning btn-sm mr-2 text-white" onClick={this.showEdit}>Edit</button>
                   <button className="btn btn-danger btn-sm" onClick={this.showConfirmDelete}>Delete</button>
@@ -99,21 +109,13 @@ class Index extends Component {
               <tr>
                 <td>Thursday / Friday</td>
                 <td>3PM - 9PM</td>
-                <td>Available</td>
+                <td>0 People applied</td>
                 <td>
                   <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
               </tr>
-              <tr>
-                <td>Saturday / sunday</td>
-                <td>2PM - 7PM</td>
-                <td>Hired</td>
-                <td>
-                  <button className="btn btn-warning btn-sm mr-2 text-white">Edit</button>
-                  <button className="btn btn-danger btn-sm">Delete</button>
-                </td>
-              </tr>
+              
             </tbody>
           </Table>
         </Col>

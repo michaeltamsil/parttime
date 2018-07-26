@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Col, Row, Table } from 'reactstrap'
+import {Button, Col, Row, Table } from 'reactstrap'
 
 class Index extends Component {
   
@@ -23,26 +23,39 @@ class Index extends Component {
             </thead>
             <tbody className="small">
               <tr>
-                <td>Minday / Tuesday / Wednesday</td>
-                <td>2PM - 7PM</td>
-                <td>July 1st - 31th 2018</td>
+                <td>Saturday / Sunday</td>
+                <td>9PM - 9AM</td>
+                <td>July 1ˢᵗ - 31ᵗʰ 2018</td>
                 <td>Waitress</td>
-                <td>Take order / serve dished / pickup ...</td>
-                <td>Rp 10K / day</td>
-                <td> Godiva Coffee Nagoya hill</td>
-                <td>Darvin Yuhuuu</td>
-                <td>Pending</td>
+                <td>Take order / serve dishes / clean table</td>
+                <td>Rp 100k/day</td>
+                <td>Godiva Coffee Nagoya Hill</td>
+                <td>Chyndian</td>
+                <td className="text-success">Deal</td>
+                <td></td>
               </tr>
               <tr>
-                <td>Saturday / Sunday</td>
-                <td>9PM - 9PM</td>
-                <td>July 1s - 31th 2018</td>
+                <td>Monday / Tuesday / Wednesday</td>
+                <td>2PM - 7PM</td>
+                <td>Juli 1ˢᵗ - 31ᵗʰ 2018</td>
                 <td>Waitress</td>
-                <td>Take order / serve dished / pickup ...</td>
-                <td> Rp 20k / day</td>
-                <td>Godiva Coffe Nagoya Hill</td>
-                <td>Darvin Yuhuuu</td>
-                <td>Approved</td>
+                <td>Take order / server dished / clean table</td>
+                <td>USD 2/hour</td>
+                <td>Rumah Makan Nasi Padang</td>
+                <td>Michael Tamsil</td>
+                <td>Applied</td>
+                <td><Button color="danger" size="sm">Cancel</Button></td>
+              </tr>
+              <tr className="text-muted">
+                <td>Monday - Friday</td>
+                <td>2PM - 7PM</td>
+                <td>Juli 1ˢᵗ - 31ᵗʰ 2018</td>
+                <td>salesman</td>
+                <td>engage customer to buy a car</td>
+                <td>USD 5/hour</td>
+                <td>Car Showroom Batam, kepulauan riau</td>
+                <td>Darvin</td>
+                <td>Rejected</td>
               </tr>
             </tbody>
           </Table>

@@ -16,7 +16,7 @@ app.get('*.js', function (req, res, next) {
   res.set('Content-Encoding', 'gzip');
   next();
 })
-var PORT = 99 || process.env.PORT
+var PORT = process.env.PORT || 99
 app.listen(PORT, function() {
 console.log('Production Express server running at localhost:' + PORT)
 })

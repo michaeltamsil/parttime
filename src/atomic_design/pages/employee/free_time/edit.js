@@ -57,17 +57,6 @@ class Edit extends Component {
               <TimeEnd/>
             </Col>
           </FormGroup>
-          <FormGroup row>
-            <Label sm={2} for="status">Status</Label>
-            <Col sm={10}>
-              <FormGroup check>
-                <Label check>
-                  <Input type="checkbox" id="status"/>{' '}
-                  Available
-                </Label>
-              </FormGroup>
-            </Col>
-          </FormGroup>
         </Form>
       </ModalBody>
       <ModalFooter>
