@@ -16,6 +16,7 @@ with that :
 
 
 # Other Info
+- real code are in version-1 branch
 - we also create back end but not have much we do. here it is the [github](https://github.com/azazel404/Parttime-Backend)
 
 # thanks to
