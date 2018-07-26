@@ -1,105 +1,78 @@
 import React, { Component } from 'react';
-import { Button, Col, CustomInput, Form, FormGroup, Input, Label,
-  Modal, ModalBody, ModalFooter, ModalHeader
+import { confirmable, createConfirmation } from 'react-confirm';
+import { Button, ButtonGroup, Col, Form, FormGroup, Input, Label,
+  Modal, ModalBody, ModalFooter, ModalHeader, NavLink, Table
 } from 'reactstrap';
 
-import Days from './../../../atoms/Days'
-import TimeStart from './../../../atoms/TimeStart'
-import TimeEnd from './../../../atoms/TimeEnd'
-
-
-class Create extends Component {
+class Detail extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      modal: this.props.isOpen || false
+      modal: true
     }
-    this.toggle = this.toggle.bind(this)
+    this.proceed = this.proceed.bind(this)
+    this.cancel = this.cancel.bind(this)
   }
 
-  componentDidUpdate(prevProps){
-    if (prevProps.isOpen != this.props.isOpen){
-      this.setState({modal: this.props.isOpen})
-    }
+  proceed() {
+    this.setState({
+      modal: false
+    })
+    this.props.proceed && this.props.proceed()
   }
 
-  toggle() {
-    this.props.hide()
+  cancel() {
+    this.setState({
+      modal: false
+    })
+    this.props.cancel && this.props.cancel()
   }
 
   render = () => {
-
-
-  return (<Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static" size="lg">
-      <ModalHeader className="bg-success text-white" toggle={this.toggle}>Create Job</ModalHeader>
+    const { dismiss } = this.props
+  return (<Modal onClosed={dismiss} isOpen={this.state.modal} toggle={this.cancel} backdrop="static">
+      <ModalHeader className="bg-primary text-white" toggle={this.toggle}>Applier</ModalHeader>
       <ModalBody>
-        <Form>
-          <FormGroup row>
-            <Label sm={2}>Days</Label>
-            <Col sm={10}>
-              <Days/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Time</Label>
-            <Col  className="text-center" sm={3}>
-              <TimeStart/>
-            </Col>
-            <Col className="text-center" sm={1}>to</Col>
-            <Col className="text-center" sm={3}>
-              <TimeEnd/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Start Date</Label>
-            <Col className="text-center" sm={3}>
-              <Input type="date" name="startDate"/>
-            </Col>
-            <Col className="text-center" sm={1}>to</Col>
-            <Col className="text-center" sm={3}>
-              <Input type="date" name="endDate"/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Position</Label>
-            <Col sm>
-              <Input name="position"/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Description</Label>
-            <Col sm>
-              <Input type="textarea"/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Salary</Label>
-            <Col sm={10}>
-              <select>
-                <option>USD</option>
-                <option>IDR</option>
-              </select>
-              <nput type="text"/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Pay Period</Label>
-            <Col sm={10}>
-              <select>
-                <option>Hourly</option>
-                <option>per day</option>
-              </select>
-              <input type="text"/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label sm={2}>Location</Label>
-            <Col sm={10}>
-              <Input type="textarea"/>
-            </Col>
-          </FormGroup>
-        </Form>
+              <Table size="sm">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Status</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <NavLink href="https://www.facebook.com/bobbyprimairya" target="_blank">Bobby</NavLink>
+                    </td>
+                    <td>
+                      <ButtonGroup>
+                        <button className="btn btn-success btn-sm mr-2">Deal</button>
+                        <button className="btn btn-secondary btn-sm">Reject</button>
+                      </ButtonGroup>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><NavLink href="https://www.facebook.com/elfathdreams" target="_blank">Amir</NavLink></td>
+                    <td>
+                      <ButtonGroup>
+                        <button className="btn btn-success btn-sm mr-2">Deal</button>
+                        <button className="btn btn-danger btn-sm">Reject</button>
+                      </ButtonGroup>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><NavLink href="https://www.facebook.com/mhaidarhanif" target="_blank">Haidar</NavLink></td>
+                    <td>
+                      <ButtonGroup>
+                        <button className="btn btn-secondary btn-sm mr-2">Deal</button>
+                        <button className="btn btn-danger btn-sm">Reject</button>
+                      </ButtonGroup>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
       </ModalBody>
       <ModalFooter>
         <Button color="light" onClick={this.toggle}>Cancel</Button>{' '}
@@ -108,4 +81,9 @@ class Create extends Component {
     </Modal>);
   }
 }
-export default Create;
+
+const confirm = createConfirmation(confirmable(Detail))
+
+export default function(options = {}){
+  return confirm(options)
+}

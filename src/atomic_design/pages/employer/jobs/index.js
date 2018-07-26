@@ -3,6 +3,7 @@ import { Button, ButtonGroup, Col, Row, Table } from 'reactstrap';
 
 import create from './create';
 import edit from './edit';
+import detail from './detail';
 import confirm from '../../../atoms/confirm';
 
 class Index extends Component {
@@ -31,9 +32,6 @@ class Index extends Component {
   }
 
   showEdit(e) {
-    e.preventDefault()
-    e.stopPropagation()
-
     edit({
       proceed: function(message){
         console.log('proceed');
@@ -48,7 +46,17 @@ class Index extends Component {
   }
 
   showDetail(e) {    
-    alert('show detail')
+    detail({
+      proceed: () => {
+        console.log('proceed');
+      },
+      cancel: () => {
+        console.log('cancel')
+      },
+      dismiss: () => {
+        console.log('tertutup');
+      }
+    })
   }
 
   showConfirmDelete(event){
@@ -77,7 +85,7 @@ class Index extends Component {
       </Row>
       <Row>
         <Col>
-          <Table striped size="sm" hover>
+          <Table striped size="sm">
             <thead>
               <tr>
                 <th>Days</th>
