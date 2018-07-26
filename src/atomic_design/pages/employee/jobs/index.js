@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Button, Col, Row, Table } from 'reactstrap'
+import {Button, Col, NavLink, Row, Table } from 'reactstrap'
 
 import apply from './apply';
 
@@ -53,8 +53,8 @@ class Index extends Component {
                 <td>bodyguard</td>
                 <td>protect customer</td>
                 <td>USD 3/hour</td>
-                <td>Rumah Makan Nasi Padang</td>
-                <td>Michael Tamsil</td>
+                <td>Bank</td>
+                <td><NavLink href="https://www.facebook.com/michael.tamsil" target="_blank">Michael Tamsil</NavLink></td>
                 <td>Available</td>
                 <td><Button color="success" size="sm" onClick={this.showApply}>Apply</Button></td>
               </tr>
@@ -66,9 +66,9 @@ class Index extends Component {
                 <td>Fullstack dev</td>
                 <td>USD 5/hour</td>
                 <td>at startup Properio</td>
-                <td>Joko</td>
+                <td><NavLink href="https://www.facebook.com/search/top/?q=joko%20auditis" target="_blank">Joko</NavLink></td>
                 <td>Available</td>
-                <td><Button color="success" size="sm" onClick={this.showApply}>Apply</Button></td>
+                <td><Button color="success" size="sm">Apply</Button></td>
               </tr>
               
             </tbody>

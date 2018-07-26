@@ -5,11 +5,6 @@ import Routes from './routes/';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-ReactDOM.render((
-  <BrowserRouter>
-        <Routes />
-  </BrowserRouter>
-), document.getElementById('root'));
+ReactDOM.render(<div><BrowserRouter><Routes /></BrowserRouter></div>, document.getElementById('root'));
 
 module.hot.accept();

@@ -49,27 +49,25 @@ class Create extends Component {
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Time</Label>
-            <Col  className="text-center" sm={3}>
-              <TimeStart/>
-            </Col>
-            <Col className="text-center" sm={1}>to</Col>
-            <Col className="text-center" sm={3}>
-              <TimeEnd/>
+            <Col sm={10}>
+              <TimeStart/>{' to '}<TimeEnd/>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Start Date</Label>
-            <Col className="text-center" sm={3}>
-              <Input type="date" name="startDate"/>
-            </Col>
-            <Col className="text-center" sm={1}>to</Col>
-            <Col className="text-center" sm={3}>
-              <Input type="date" name="endDate"/>
+            <Col sm={10}>
+              <div style={{display:"inline-block"}}>
+                <Input type="date" name="startDate"/>
+              </div>
+              {' to '}
+              <div style={{display:"inline-block"}}>
+                <Input type="date" name="endDate"/>
+              </div>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Position</Label>
-            <Col sm>
+            <Col sm={6}>
               <Input name="position"/>
             </Col>
           </FormGroup>
@@ -89,22 +87,17 @@ class Create extends Component {
                     <option>IDR</option>
                   </select>
                 </InputGroupAddon>
-                <Input/>
+                <Input type="number"/>
               </InputGroup>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Pay Period</Label>
-            <Col sm={4}>
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <Input type="select">
-                    <option>Hourly</option>
-                    <option>per day</option>
-                  </Input>
-                </InputGroupAddon>
-                <Input/>
-              </InputGroup>
+            <Col sm={2}>
+                <Input type="select">
+                  <option>Hourly</option>
+                  <option>per day</option>
+                </Input>
             </Col>
           </FormGroup>
           <FormGroup row>

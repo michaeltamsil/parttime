@@ -1,4 +1,4 @@
-// const polyfill = require('babel-polyfill');
+const polyfill = require('babel-polyfill');
 require('babel-polyfill');
 const path = require('path');
 const HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
@@ -14,6 +14,7 @@ module.exports = () => ({
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  mode: 'development',
   devtool: '#eval-source-map',
   plugins: [
     new HotModuleReplacementPlugin()
@@ -41,7 +42,7 @@ module.exports = () => ({
       },
       {
         test: /\.(css|scss)$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader'],
+        loader: ['style-loader', 'css-loader', 'sass-loader']
       },
     ],
   },

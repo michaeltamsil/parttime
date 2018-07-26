@@ -41,7 +41,7 @@ class Apply extends Component {
           <FormGroup row>
             <Label sm={3}>Days</Label>
             <Col>
-              <Input plaintext>Monday, Tuesday, Wednesday</Input>
+              <Input plaintext>Monday</Input>
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -59,25 +59,25 @@ class Apply extends Component {
           <FormGroup row>
             <Label sm={3}>Position</Label>
             <Col sm>
-              <Input plaintext>Waitress</Input>
+              <Input plaintext>Bodyguard</Input>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={3}>Description</Label>
             <Col sm>
-              <Input plaintext>take order, serve dishes, pick bills, clean table, clean dining room</Input>
+              <Input plaintext>protect customer</Input>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={3}>Salary</Label>
             <Col sm>
-              <Input plaintext>IDR 300,000.00 / daily</Input>
+              <Input plaintext>USD 3/hour</Input>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={3}>Location</Label>
             <Col sm>
-              <Input plaintext>Godiva Coffee Nagoya Hill</Input>
+              <Input plaintext>Bank</Input>
             </Col>
           </FormGroup>
           <FormGroup row>

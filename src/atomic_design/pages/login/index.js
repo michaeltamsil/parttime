@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import FacebookLogin from 'react-facebook-login';
+// import FacebookLogin from 'react-facebook-login';
 
 const responseFacebook = (response) => {
   console.log(response);
@@ -25,13 +25,10 @@ class Index extends Component {
     // this.setState({
     //   isRedirected: true
     // })
-  }
-
-  
+  } 
   
   render = () => {
-    
-    
+   
     return (<div>
       { this.state.isRedirected ? <Redirect to="/employee/free_time" /> : null }
       <div className="home-bg">
@@ -45,18 +42,13 @@ class Index extends Component {
                 <div className="home-btn">
                   <button
                     className="btn btn-primary btn-lg btn-block"
-                    onClick={this.loginIn}
-                  >
+                    onClick={this.loginIn}>
                     <span>
                       <i style={{fontSize:20,paddingRight:13,paddingTop:6}} className="fa fa-facebook-square" ></i>
                     </span>
                     Connect With Facebook
                   </button>
-                  <FacebookLogin
-                    appId="323921654813697"
-                    autoLoad={true}
-                    fields="name,email,picture"
-                    callback={responseFacebook} />
+                  
                 </div>
               </div>
             </div>
@@ -66,4 +58,9 @@ class Index extends Component {
     </div>);
   }
 }
+{/* <FacebookLogin
+appId="323921654813697"
+autoLoad={true}
+fields="name,email,picture"
+callback={responseFacebook} /> */}
 export default Index;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { confirmable, createConfirmation } from 'react-confirm';
-import { Button, Col, Form, FormGroup, Input, Label,
-  Modal, ModalBody, ModalFooter, ModalHeader
+import { Button, Col, Form, FormGroup, Input, InputGroup,
+  InputGroupAddon, Label, Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
 import Days from './../../../atoms/Days'
@@ -48,27 +48,25 @@ class Edit extends Component {
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Time</Label>
-            <Col  className="text-center" sm={3}>
-              <TimeStart/>
-            </Col>
-            <Col className="text-center" sm={1}>to</Col>
-            <Col className="text-center" sm={3}>
-              <TimeEnd/>
+            <Col sm={10}>
+              <TimeStart/>{' to '}<TimeEnd/>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Start Date</Label>
-            <Col className="text-center" sm={3}>
-              <Input type="date" name="startDate"/>
-            </Col>
-            <Col className="text-center" sm={1}>to</Col>
-            <Col className="text-center" sm={3}>
-              <Input type="date" name="endDate"/>
+            <Col sm={10}>
+              <div style={{display:"inline-block"}}>
+                <Input type="date" name="startDate"/>
+              </div>
+              {' to '}
+              <div style={{display:"inline-block"}}>
+                <Input type="date" name="endDate"/>
+              </div>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Position</Label>
-            <Col sm>
+            <Col sm={6}>
               <Input name="position"/>
             </Col>
           </FormGroup>
@@ -80,22 +78,25 @@ class Edit extends Component {
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Salary</Label>
-            <Col sm={10}>
-              <select>
-                <option>USD</option>
-                <option>IDR</option>
-              </select>
-              <input type="text"/>
+            <Col sm={4}>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <select className="form-control">
+                    <option>USD</option>
+                    <option>IDR</option>
+                  </select>
+                </InputGroupAddon>
+                <Input type="number"/>
+              </InputGroup>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Pay Period</Label>
-            <Col sm={10}>
-              <select>
-                <option>Hourly</option>
-                <option>per day</option>
-              </select>
-              <input type="text"/>
+            <Col sm={2}>
+                <Input type="select">
+                  <option>Hourly</option>
+                  <option>per day</option>
+                </Input>
             </Col>
           </FormGroup>
           <FormGroup row>

@@ -49,12 +49,8 @@ class Edit extends Component {
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Time</Label>
-            <Col sm={4}>
-              <TimeStart/>
-            </Col>
-            <Col className="text-center" sm={1}>-</Col>
-            <Col sm={4}>
-              <TimeEnd/>
+            <Col sm={10}>
+              <TimeStart/>{' to '}<TimeEnd/>
             </Col>
           </FormGroup>
         </Form>
