@@ -60,7 +60,6 @@ class Index extends Component {
   }
 
   showConfirmDelete(event){
-    debugger
     confirm('Do you want to delete this job?', {
       type: 'delete',
       dismiss: function(){
@@ -113,7 +112,7 @@ class Index extends Component {
                   <ButtonGroup>
                     <button className="btn btn-primary btn-sm mr-2 text-white" onClick={this.showDetail}>Detail</button>
                     <button className="btn btn-warning btn-sm mr-2 text-white" onClick={this.showEdit}>Edit</button>
-                    <button className="btn btn-danger btn-sm">Delete</button>
+                    <button className="btn btn-danger btn-sm" onClick={this.showConfirmDelete}>Delete</button>
                   </ButtonGroup>
                 </td>
               </tr>
